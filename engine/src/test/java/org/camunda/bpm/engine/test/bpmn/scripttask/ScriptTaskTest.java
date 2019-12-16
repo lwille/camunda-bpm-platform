@@ -57,9 +57,7 @@ public class ScriptTaskTest extends PluggableProcessEngineTestCase {
   private List<String> deploymentIds = new ArrayList<String>();
 
   protected void tearDown() throws Exception {
-    for (String deploymentId : deploymentIds) {
-      repositoryService.deleteDeployment(deploymentId, true);
-    }
+    deploymentIds.forEach(deploymentId -> repositoryService.deleteDeployment(deploymentId, true));
   }
 
   public void testJavascriptProcessVarVisibility() {
